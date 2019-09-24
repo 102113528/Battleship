@@ -42,7 +42,7 @@ static class DeploymentController
     public static void HandleDeploymentInput()
     {
         if (SwinGame.KeyTyped(KeyCode.EscapeKey))
-            GameController.AddNewState(GameState.ViewingGameMenu);
+            GameController.EndCurrentState();
 
         if (SwinGame.KeyTyped(KeyCode.UpKey) | SwinGame.KeyTyped(KeyCode.DownKey))
             _currentDirection = Direction.UpDown;
