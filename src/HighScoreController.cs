@@ -151,8 +151,7 @@ static class HighScoreController
     /// <remarks></remarks>
     public static void HandleHighScoreInput()
     {
-        if (SwinGame.MouseClicked(MouseButton.LeftButton) || SwinGame.KeyTyped(KeyCode.EscapeKey) ||
-            SwinGame.KeyTyped(KeyCode.ReturnKey))
+        if (SwinGame.KeyTyped(KeyCode.EscapeKey) || SwinGame.KeyTyped(KeyCode.ReturnKey))
             GameController.EndCurrentState();
     }
 
