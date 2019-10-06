@@ -122,6 +122,8 @@ static class HighScoreController
         if (_Scores.Count == 0)
             LoadScores();
 
+        SwinGame.FillRectangle(Color.Black, 490, 78, 93, 290);
+       
         SwinGame.DrawText("   High Scores   ", Color.White, GameResources.GameFont("Arial"), SCORES_LEFT,
             SCORES_HEADING);
 
