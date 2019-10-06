@@ -248,9 +248,9 @@ For i  = 0 To _menuStructure(menu).Length - 1
     Private Sub PerformSetupMenuAction(ByVal button As Integer)
         Select Case button
             Case SETUP_MENU_EASY_BUTTON
-                SetDifficulty(AIOption.Hard)
+                SetDifficulty(AIOption.Easy)
             Case SETUP_MENU_MEDIUM_BUTTON
-                SetDifficulty(AIOption.Hard)
+                SetDifficulty(AIOption.Medium)
             Case SETUP_MENU_HARD_BUTTON
                 SetDifficulty(AIOption.Hard)
         End Select
