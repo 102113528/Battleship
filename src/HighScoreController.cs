@@ -13,6 +13,20 @@ static class HighScoreController
 {
     private const int NAME_WIDTH = 3;
     private const int SCORES_LEFT = 490;
+    
+    private const int TOP_BUTTONS_TOP = 72;
+    private const int TOP_BUTTONS_HEIGHT = 46;
+
+    private const int PLAY_BUTTON_LEFT = 693;
+    private const int PLAY_BUTTON_WIDTH = 80;
+
+    private const int UP_DOWN_BUTTON_LEFT = 410;
+    private const int LEFT_RIGHT_BUTTON_LEFT = 350;
+
+    private const int RANDOM_BUTTON_LEFT = 547;
+    private const int RANDOM_BUTTON_WIDTH = 51;
+
+    private const int DIR_BUTTONS_WIDTH = 47;
 
     /// <summary>
     /// The score structure is used to keep the name and
@@ -118,6 +132,8 @@ static class HighScoreController
         const int SCORES_HEADING = 40;
         const int SCORES_TOP = 80;
         const int SCORE_GAP = 30;
+        const int BACK_BUTTON_BOTTOM = 72;
+        const int BACK_BUTTON_TOP = 46;
 
         if (_Scores.Count == 0)
             LoadScores();
@@ -125,6 +141,7 @@ static class HighScoreController
         SwinGame.DrawText("   High Scores   ", Color.White, GameResources.GameFont("Courier"), SCORES_LEFT,
             SCORES_HEADING);
 
+        SwinGame.DrawBitmap(GameResources.GameImage("RandomButton"), LEFT_RIGHT_BUTTON_LEFT, TOP_BUTTONS_TOP);
         // For all of the scores
         int i = default(int);
         var loopTo = _Scores.Count - 1;
@@ -151,9 +168,12 @@ static class HighScoreController
     /// <remarks></remarks>
     public static void HandleHighScoreInput()
     {
-        if (SwinGame.MouseClicked(MouseButton.LeftButton) || SwinGame.KeyTyped(KeyCode.EscapeKey) ||
-            SwinGame.KeyTyped(KeyCode.ReturnKey))
-            GameController.EndCurrentState();
+            if (SwinGame.MouseClicked(MouseButton.LeftButton))
+            {
+                if (UtilityFunctions.IsMouseInRectangle(LEFT_RIGHT_BUTTON_LEFT, TOP_BUTTONS_TOP, DIR_BUTTONS_WIDTH,
+                TOP_BUTTONS_HEIGHT))
+                    GameController.EndCurrentState();
+            }
     }
 
     /// <summary>
