@@ -138,7 +138,9 @@ static class HighScoreController
         if (_Scores.Count == 0)
             LoadScores();
 
-        SwinGame.DrawText("   High Scores   ", Color.White, GameResources.GameFont("Courier"), SCORES_LEFT,
+        SwinGame.FillRectangle(Color.Black, 490, 78, 93, 290);
+       
+        SwinGame.DrawText("   High Scores   ", Color.White, GameResources.GameFont("Arial"), SCORES_LEFT,
             SCORES_HEADING);
 
         SwinGame.DrawBitmap(GameResources.GameImage("RandomButton"), LEFT_RIGHT_BUTTON_LEFT, TOP_BUTTONS_TOP);
@@ -155,10 +157,10 @@ static class HighScoreController
             if (i < 9)
                 SwinGame.DrawText(
                     " " + (i + 1) + ":   " + s.Name + "   " + s.Value,
-                    Color.White, GameResources.GameFont("Courier"), SCORES_LEFT, SCORES_TOP + (i * SCORE_GAP));
+                    Color.White, GameResources.GameFont("Arial"), SCORES_LEFT, SCORES_TOP + (i * SCORE_GAP));
             else
                 SwinGame.DrawText((i + 1) + ":   " + s.Name + "   " + s.Value,
-                    Color.White, GameResources.GameFont("Courier"), SCORES_LEFT, SCORES_TOP + (i * SCORE_GAP));
+                    Color.White, GameResources.GameFont("Arial"), SCORES_LEFT, SCORES_TOP + (i * SCORE_GAP));
         }
     }
 
@@ -168,12 +170,17 @@ static class HighScoreController
     /// <remarks></remarks>
     public static void HandleHighScoreInput()
     {
+<<<<<<< HEAD
             if (SwinGame.MouseClicked(MouseButton.LeftButton))
             {
                 if (UtilityFunctions.IsMouseInRectangle(LEFT_RIGHT_BUTTON_LEFT, TOP_BUTTONS_TOP, DIR_BUTTONS_WIDTH,
                 TOP_BUTTONS_HEIGHT))
                     GameController.EndCurrentState();
             }
+=======
+        if (SwinGame.KeyTyped(KeyCode.EscapeKey) || SwinGame.KeyTyped(KeyCode.ReturnKey))
+            GameController.EndCurrentState();
+>>>>>>> 8d00e6978b763da9917da020d30a73da4630b3c4
     }
 
     /// <summary>
@@ -199,9 +206,9 @@ static class HighScoreController
             GameController.AddNewState(GameState.ViewingHighScores);
 
             int x;
-            x = SCORES_LEFT + SwinGame.TextWidth(GameResources.GameFont("Courier"), "Name: ");
+            x = SCORES_LEFT + SwinGame.TextWidth(GameResources.GameFont("Arial"), "Name: ");
 
-            SwinGame.StartReadingText(Color.White, NAME_WIDTH, GameResources.GameFont("Courier"), x, ENTRY_TOP);
+            SwinGame.StartReadingText(Color.White, NAME_WIDTH, GameResources.GameFont("Arial"), x, ENTRY_TOP);
 
             // Read the text from the user
             while (SwinGame.ReadingText())
@@ -210,7 +217,7 @@ static class HighScoreController
 
                 UtilityFunctions.DrawBackground();
                 DrawHighScores();
-                SwinGame.DrawText("Name: ", Color.White, GameResources.GameFont("Courier"), SCORES_LEFT, ENTRY_TOP);
+                SwinGame.DrawText("Name: ", Color.White, GameResources.GameFont("Arial"), SCORES_LEFT, ENTRY_TOP);
                 SwinGame.RefreshScreen();
             }
 
