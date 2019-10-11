@@ -170,17 +170,9 @@ static class HighScoreController
     /// <remarks></remarks>
     public static void HandleHighScoreInput()
     {
-<<<<<<< HEAD
-            if (SwinGame.MouseClicked(MouseButton.LeftButton))
-            {
-                if (UtilityFunctions.IsMouseInRectangle(LEFT_RIGHT_BUTTON_LEFT, TOP_BUTTONS_TOP, DIR_BUTTONS_WIDTH,
-                TOP_BUTTONS_HEIGHT))
-                    GameController.EndCurrentState();
-            }
-=======
-        if (SwinGame.KeyTyped(KeyCode.EscapeKey) || SwinGame.KeyTyped(KeyCode.ReturnKey))
+        if (SwinGame.KeyTyped(KeyCode.EscapeKey) || SwinGame.KeyTyped(KeyCode.ReturnKey) || (SwinGame.MouseClicked(MouseButton.LeftButton) && UtilityFunctions.IsMouseInRectangle(LEFT_RIGHT_BUTTON_LEFT, TOP_BUTTONS_TOP, DIR_BUTTONS_WIDTH,
+                TOP_BUTTONS_HEIGHT)))
             GameController.EndCurrentState();
->>>>>>> 8d00e6978b763da9917da020d30a73da4630b3c4
     }
 
     /// <summary>
